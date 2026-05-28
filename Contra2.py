@@ -483,7 +483,7 @@ def render_registo():
     
     current_email = st.session_state.user.email
 
-    can_edit = prof["owner_id"] == current_email
+    can_edit = prof["email"] == current_email
 
     if not can_edit:
         st.warning("Este perfil é apenas de visualização.")
