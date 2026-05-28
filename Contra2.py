@@ -21,6 +21,39 @@ def init_supabase() -> Client:
 
 sb = init_supabase()
 
+# ═════════════════════════════════════════════
+# AUTH
+# ═════════════════════════════════════════════
+
+if "user" not in st.session_state:
+    st.session_state.user = None
+
+def sign_in(email, password):
+    try:
+        res = sb.auth.sign_in_with_password({
+            "email": email,
+            "password": password
+        })
+        st.session_state.user = res.user
+        st.rerun()
+    except Exception as e:
+        st.error("Login inválido")
+
+def sign_up(email, password):
+    try:
+        sb.auth.sign_up({
+            "email": email,
+            "password": password
+        })
+        st.success("Conta criada. Faz login.")
+    except Exception as e:
+        st.error(str(e))
+
+def logout():
+    sb.auth.sign_out()
+    st.session_state.user = None
+    st.rerun()
+
 # ════════════════════════════════════════════════════════════════════════════
 # UTILITY
 # ════════════════════════════════════════════════════════════════════════════
@@ -112,14 +145,15 @@ def db_set_active_profile(profile_id: str):
 
 def db_add_task(profile_id: str, day_key: str, task: dict):
     sb.table("tasks").insert({
-        "id":         task["id"],
+        "user_id": st.session_state.user.id,
+        "id": task["id"],
         "profile_id": profile_id,
-        "date":       day_key,
-        "name":       task["name"],
-        "type":       task.get("type", ""),
-        "ticket":     task.get("ticket", ""),
-        "minutes":    task["minutes"],
-        "added_at":   task.get("addedAt", ""),
+        "date": day_key,
+        "name": task["name"],
+        "type": task.get("type", ""),
+        "ticket": task.get("ticket", ""),
+        "minutes": task["minutes"],
+        "added_at": task.get("addedAt", ""),
     }).execute()
     invalidate()
 
@@ -278,6 +312,32 @@ div[data-testid="stForm"] { border:none !important; padding:0 !important; }
 </style>
 """, unsafe_allow_html=True)
 
+# ═════════════════════════════════════════════
+# LOGIN SCREEN
+# ═════════════════════════════════════════════
+
+if not st.session_state.user:
+
+    st.title("🔐 Login")
+
+    tab1, tab2 = st.tabs(["Entrar", "Criar conta"])
+
+    with tab1:
+        email = st.text_input("Email")
+        password = st.text_input("Password", type="password")
+
+        if st.button("Entrar"):
+            sign_in(email, password)
+
+    with tab2:
+        new_email = st.text_input("Novo email")
+        new_password = st.text_input("Nova password", type="password")
+
+        if st.button("Criar conta"):
+            sign_up(new_email, new_password)
+
+    st.stop()
+
 # ════════════════════════════════════════════════════════════════════════════
 # CARREGAR DADOS
 # ════════════════════════════════════════════════════════════════════════════
@@ -310,6 +370,8 @@ with st.sidebar:
     prof = chosen_prof
 
     st.divider()
+    if st.button("🚪 Logout", use_container_width=True):
+        logout()
     st.caption(f"📅 {today_key()}")
 
 # ════════════════════════════════════════════════════════════════════════════
