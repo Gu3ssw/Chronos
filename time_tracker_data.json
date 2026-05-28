@@ -1,0 +1,606 @@
+{
+  "profiles": [
+    {
+      "id": "p1",
+      "name": "O meu perfil",
+      "hours": 7.5
+    }
+  ],
+  "active_profile": "p1",
+  "days": {
+    "p1": {
+      "2026-04-29": {
+        "tasks": [
+          {
+            "id": "123",
+            "name": "Daily delivery",
+            "ticket": "",
+            "minutes": 30,
+            "addedAt": "09:00"
+          },
+          {
+            "id": "cce48b19",
+            "name": "Adicionado campo Observacoes MIC e Estaleiro",
+            "ticket": "#141487",
+            "minutes": 90,
+            "addedAt": "15:18"
+          },
+          {
+            "id": "a1f1a55b",
+            "name": "Ajustado o filtro para os meses preenchidos por parte dos autos do estaleiro para validar com numero inteiro tambem e corrigido o mês preenchido na lista de autos de faturação do mic e verificado se o processo não esta  a duplicar informação",
+            "ticket": "#141487",
+            "minutes": 60,
+            "addedAt": "15:18"
+          },
+          {
+            "id": "4e268cae",
+            "name": "API Banco de horas",
+            "ticket": "",
+            "minutes": 80,
+            "addedAt": "15:37"
+          },
+          {
+            "id": "3734df7d",
+            "name": "Alterado mensagem de erro na tela sem permissôes app aprovação autos internos & Ajustado o codigo para com que os responsaveis associados no campo \"Responsaveis_Academia\" apenas consigam visualizar autos imputados pela academia e não do resto dos outro centro_lucro dos recursos humanos",
+            "ticket": "#141487",
+            "minutes": 120,
+            "addedAt": "18:00"
+          }
+        ]
+      },
+      "2026-04-30": {
+        "tasks": [
+          {
+            "id": "1243",
+            "name": "Daily delivery",
+            "ticket": "",
+            "minutes": 30,
+            "addedAt": "09:00"
+          },
+          {
+            "id": "29d7456d",
+            "name": " Regra de prioridades na coleção relativo aos responsáveis por empresa e CC e Feito os testes necessários a utilizar a empresa Metalser",
+            "type": "Desenvolvimento",
+            "ticket": "#141487 ",
+            "minutes": 57,
+            "addedAt": "12:12"
+          },
+          {
+            "id": "8afb736b",
+            "name": "API Banco de horas: Tipo de task, combobox selecionadora ao criar task tanto manualmente como pelo cronometro.  Dashboard em outra navegação que dê para ter uma visão geral da minha gestão de tasks e tempo. Exportar para excel. Possibilidade de editar as tasks registadas",
+            "type": "Desenvolvimento",
+            "ticket": "",
+            "minutes": 120,
+            "addedAt": "12:13"
+          }
+        ]
+      },
+      "2026-05-05": {
+        "tasks": [
+          {
+            "id": "1235",
+            "name": "Daily delivery",
+            "ticket": "",
+            "minutes": 30,
+            "addedAt": "09:00"
+          },
+          {
+            "id": "e14b50bd",
+            "name": "Ajustado timings autos faturação para dia 21 e 26 apenas",
+            "type": "Desenvolvimento",
+            "ticket": "",
+            "minutes": 70,
+            "addedAt": "10:16"
+          },
+          {
+            "id": "6da63760",
+            "name": "API BANCO DE HORAS",
+            "type": "Outro",
+            "ticket": "",
+            "minutes": 120,
+            "addedAt": "12:40"
+          },
+          {
+            "id": "18d3eac3",
+            "name": "API BANCO DE HORAS",
+            "type": "Outro",
+            "ticket": "",
+            "minutes": 90,
+            "addedAt": "15:20"
+          },
+          {
+            "id": "110b2ee5",
+            "name": "Atualizado documentação dos timings autos faturação",
+            "type": "Documentação",
+            "ticket": "",
+            "minutes": 30,
+            "addedAt": "15:55"
+          },
+          {
+            "id": "b5168551",
+            "name": "Sessão Semanal delivery 2",
+            "type": "Reunião",
+            "ticket": "",
+            "minutes": 140,
+            "addedAt": "16:01"
+          }
+        ]
+      },
+      "2026-05-06": {
+        "tasks": [
+          {
+            "id": "1237",
+            "name": "Daily delivery",
+            "ticket": "",
+            "minutes": 30,
+            "addedAt": "09:00"
+          },
+          {
+            "id": "b036cf3b",
+            "name": "Atualização da documentação principal",
+            "type": "Documentação",
+            "ticket": "141487",
+            "minutes": 120,
+            "addedAt": "17:45"
+          },
+          {
+            "id": "85acf9dd",
+            "name": "API banco de horas",
+            "type": "Desenvolvimento",
+            "ticket": "",
+            "minutes": 270,
+            "addedAt": "17:45"
+          }
+        ]
+      },
+      "2026-05-07": {
+        "tasks": [
+          {
+            "id": "1238",
+            "name": "Daily delivery",
+            "ticket": "",
+            "minutes": 30,
+            "addedAt": "09:00"
+          },
+          {
+            "id": "435614b0",
+            "name": "Atualização da documentação do processo dos autos",
+            "type": "Documentação",
+            "ticket": "",
+            "minutes": 210,
+            "addedAt": "11:42"
+          },
+          {
+            "id": "edd2a06e",
+            "name": "Fluxos notificações RH, estaleiro e mic",
+            "type": "Reunião",
+            "ticket": "",
+            "minutes": 210,
+            "addedAt": "17:30"
+          }
+        ]
+      },
+      "2026-05-12": {
+        "tasks": [
+          {
+            "id": "1239",
+            "name": "Daily delivery",
+            "ticket": "",
+            "minutes": 30,
+            "addedAt": "09:00"
+          },
+          {
+            "id": "1239",
+            "name": "Documentação Campos Responsaveis Autos Internos",
+            "ticket": "",
+            "minutes": 120,
+            "addedAt": "12:00"
+          },
+          {
+            "id": "416d5df2",
+            "name": "Sessão semanal Delivery",
+            "type": "Reunião",
+            "ticket": "",
+            "minutes": 120,
+            "addedAt": "09:45"
+          }
+        ]
+      },
+      "2026-05-08": {
+        "tasks": []
+      },
+      "2026-05-13": {
+        "tasks": [
+          {
+            "id": "1232",
+            "name": "Daily delivery",
+            "ticket": "",
+            "minutes": 30,
+            "addedAt": "09:00"
+          },
+          {
+            "id": "4cda920b",
+            "name": "Desenvolvido funcionalidade para eliminar historico  da lista eventos_casais",
+            "type": "Desenvolvimento",
+            "ticket": "",
+            "minutes": 120,
+            "addedAt": "15:51"
+          },
+          {
+            "id": "0830b380",
+            "name": "Iniciado transferência  BANCO DE HORAS para electron",
+            "type": "Desenvolvimento",
+            "ticket": "",
+            "minutes": 60,
+            "addedAt": "15:52"
+          },
+          {
+            "id": "0830b080",
+            "name": "Documentação App Eventos",
+            "type": "Documentação",
+            "ticket": "",
+            "minutes": 150,
+            "addedAt": "15:52"
+          },
+          {
+            "id": "9d44b6f4",
+            "name": "Documentação app eventos",
+            "type": "Documentação",
+            "ticket": "",
+            "minutes": 60,
+            "addedAt": "16:58"
+          }
+        ]
+      },
+      "2026-05-14": {
+        "tasks": [
+          {
+            "id": "abf4b624",
+            "name": "Daily delivery",
+            "type": "Reunião",
+            "ticket": "",
+            "minutes": 30,
+            "addedAt": "10:44"
+          },
+          {
+            "id": "26c3e923",
+            "name": "Gestão de horas pjt eventos e app banco de horas",
+            "type": "Planeamento",
+            "ticket": "",
+            "minutes": 74,
+            "addedAt": "10:44"
+          },
+          {
+            "id": "7e31f082",
+            "name": "Revisão e Gestão de tempo em pjt ",
+            "type": "Revisão",
+            "ticket": "",
+            "minutes": 40,
+            "addedAt": "11:56"
+          },
+          {
+            "id": "31a45ed1",
+            "name": "Analise bug control tower",
+            "type": "Suporte",
+            "ticket": "",
+            "minutes": 20,
+            "addedAt": "12:30"
+          },
+          {
+            "id": "ca654278",
+            "name": "bug control tower",
+            "type": "Reunião",
+            "ticket": "",
+            "minutes": 230,
+            "addedAt": "18:01"
+          }
+        ]
+      },
+      "2026-05-15": {
+        "tasks": [
+          {
+            "id": "60cb1244",
+            "name": "daily delivery",
+            "type": "Reunião",
+            "ticket": "",
+            "minutes": 30,
+            "addedAt": "09:12"
+          },
+          {
+            "id": "0dbb7d4d",
+            "name": "Reunião calendario de etapas com financeiro",
+            "type": "Reunião",
+            "ticket": "",
+            "minutes": 60,
+            "addedAt": "11:57"
+          },
+          {
+            "id": "c23836b1",
+            "name": "Reunião entrega documentação eventos",
+            "type": "Reunião",
+            "ticket": "",
+            "minutes": 60,
+            "addedAt": "10:12"
+          },
+          {
+            "id": "2be8acbe",
+            "name": "Analise da solução corpo de email eventos",
+            "type": "Reunião",
+            "ticket": "",
+            "minutes": 210,
+            "addedAt": "10:12"
+          }
+        ]
+      },
+      "2026-05-19": {
+        "tasks": [
+          {
+            "id": "931b7c76",
+            "name": "Reunião daily delivery",
+            "type": "Reunião",
+            "ticket": "",
+            "minutes": 10,
+            "addedAt": "10:20"
+          },
+          {
+            "id": "03870797",
+            "name": "Adicionado campo saudação app eventos, ajuste campo opção adicionado varias opções",
+            "type": "Desenvolvimento",
+            "ticket": "",
+            "minutes": 46,
+            "addedAt": "10:26"
+          },
+          {
+            "id": "75c1e72d",
+            "name": "Campo saudação formatação corpo email",
+            "type": "Reunião",
+            "ticket": "",
+            "minutes": 30,
+            "addedAt": "10:56"
+          },
+          {
+            "id": "4b6d1e65",
+            "name": "Ajustado tamanho dinamico para imagem evento no corpo do email",
+            "type": "Desenvolvimento",
+            "ticket": "",
+            "minutes": 16,
+            "addedAt": "11:46"
+          },
+          {
+            "id": "5e56756d",
+            "name": "Ajuste formatação email eventos para novas alterações e ajuste de rodape",
+            "type": "Reunião",
+            "ticket": "",
+            "minutes": 45,
+            "addedAt": "12:39"
+          },
+          {
+            "id": "b70faf53",
+            "name": "Adicionado campo destinarios/possibilidade de enviar para certos destinatarios",
+            "type": "Desenvolvimento",
+            "ticket": "",
+            "minutes": 135,
+            "addedAt": "15:40"
+          },
+          {
+            "id": "071ea97b",
+            "name": "Reunião semanal delivery",
+            "type": "Reunião",
+            "ticket": "",
+            "minutes": 120,
+            "addedAt": "17:37"
+          }
+        ]
+      },
+      "2026-05-18": {
+        "tasks": [
+          {
+            "id": "c23836b1",
+            "name": "Criado novos campos para a funcionalidade de automatização do corpo de email dos eventos e nova funcionalidade app eventos que faz a estrutura do corpo de email",
+            "type": "Desenvolvimento",
+            "ticket": "",
+            "minutes": 250,
+            "addedAt": "10:12"
+          },
+          {
+            "id": "2be8acbe",
+            "name": "Analise da solução backup de email eventos, ajustado o fluxo para receber a nova funcionalidade",
+            "type": "Reunião",
+            "ticket": "",
+            "minutes": 180,
+            "addedAt": "10:12"
+          }
+        ]
+      },
+      "2026-05-16": {
+        "tasks": []
+      },
+      "2026-05-20": {
+        "tasks": [
+          {
+            "id": "93cb455d",
+            "name": "Reunião daily delivery",
+            "type": "Reunião",
+            "ticket": "",
+            "minutes": 30,
+            "addedAt": "09:36"
+          },
+          {
+            "id": "e27eb83f",
+            "name": "corrigido formatação email, tentativa de centralizar imagens no outlook 2019",
+            "type": "Desenvolvimento",
+            "ticket": "",
+            "minutes": 50,
+            "addedAt": "10:19"
+          },
+          {
+            "id": "b7ab44a1",
+            "name": "Ticket suporte twinstudio acesso app ponto",
+            "type": "Suporte",
+            "ticket": "",
+            "minutes": 30,
+            "addedAt": "12:05"
+          },
+          {
+            "id": "0d74b357",
+            "name": "Desenvolvimento selecionar destinatarios especificos apenas do evento selecionado",
+            "type": "Desenvolvimento",
+            "ticket": "",
+            "minutes": 48,
+            "addedAt": "12:06"
+          },
+          {
+            "id": "f0ddba99",
+            "name": "Medico",
+            "type": "Outro",
+            "ticket": "",
+            "minutes": 150,
+            "addedAt": "12:14"
+          },
+          {
+            "id": "495c2225",
+            "name": "Destinatarios fluxo power automate",
+            "type": "Desenvolvimento",
+            "ticket": "",
+            "minutes": 100,
+            "addedAt": "15:05"
+          }
+        ]
+      },
+      "2026-05-21": {
+        "tasks": [
+          {
+            "id": "456f7d83",
+            "name": "Reunião daily ",
+            "type": "Reunião",
+            "ticket": "",
+            "minutes": 12,
+            "addedAt": "09:36"
+          },
+          {
+            "id": "838539b6",
+            "name": "organização e testes app evento seleção de destinatarios e envio de email",
+            "type": "Revisão",
+            "ticket": "",
+            "minutes": 60,
+            "addedAt": "10:15"
+          },
+          {
+            "id": "ef8b98e8",
+            "name": "Função selecionado por inscrição, formatação imagem, gestão de participantes, menu de escolha de campos",
+            "type": "Desenvolvimento",
+            "ticket": "",
+            "minutes": 120,
+            "addedAt": "12:39"
+          },
+          {
+            "id": "a655224d",
+            "name": "Importação de participantes atrasados, template de importacao, tela de novo participante com escolha de quais campos deseja visualizar, testado e ajustado funcionalidade de envio de email selecionado destinatarios para o mesmo evento inscrições diferentes",
+            "type": "Desenvolvimento",
+            "ticket": "",
+            "minutes": 240,
+            "addedAt": "17:25"
+          }
+        ]
+      },
+      "2026-05-22": {
+        "tasks": [
+          {
+            "id": "37209408",
+            "name": "Reuniao daily",
+            "type": "Reunião",
+            "ticket": "",
+            "minutes": 43,
+            "addedAt": "09:44"
+          },
+          {
+            "id": "6cc5cd5c",
+            "name": "app eventos",
+            "type": "Reunião",
+            "ticket": "",
+            "minutes": 360,
+            "addedAt": "18:03"
+          }
+        ]
+      },
+      "2026-05-26": {
+        "tasks": [
+          {
+            "id": "00bb4e0b",
+            "name": "Medico",
+            "type": "Reunião",
+            "ticket": "",
+            "minutes": 30,
+            "addedAt": "09:33"
+          },
+          {
+            "id": "ba402bc9",
+            "name": "Criado lista historico checkin e mapeado para atualizar apos o backup",
+            "type": "Desenvolvimento",
+            "ticket": "",
+            "minutes": 30,
+            "addedAt": "09:55"
+          },
+          {
+            "id": "4c2caee0",
+            "name": "Filtragem e UI Colaboradores Grupo",
+            "type": "Desenvolvimento",
+            "ticket": "",
+            "minutes": 138,
+            "addedAt": "12:43"
+          },
+          {
+            "id": "85b564b7",
+            "name": "Update UI Gestão Eventos App eventos",
+            "type": "Desenvolvimento",
+            "ticket": "",
+            "minutes": 120,
+            "addedAt": "16:05"
+          },
+          {
+            "id": "f002500a",
+            "name": "UI Gestão de eventos, info, editar, remover, galeria, imagem",
+            "type": "Desenvolvimento",
+            "ticket": "",
+            "minutes": 64,
+            "addedAt": "18:05"
+          }
+        ]
+      },
+      "2026-05-27": {
+        "tasks": [
+          {
+            "id": "42b6441d",
+            "name": "Update UI detalhes eventos e CheckIN",
+            "type": "Desenvolvimento",
+            "ticket": "",
+            "minutes": 191,
+            "addedAt": "12:43"
+          },
+          {
+            "id": "b4345c05",
+            "name": "UI Checkin, refeito o ecra do check-in",
+            "type": "Desenvolvimento",
+            "ticket": "",
+            "minutes": 192,
+            "addedAt": "16:25"
+          }
+        ]
+      },
+      "2026-05-28": {
+        "tasks": []
+      }
+    }
+  },
+  "task_types": [
+    "Reunião",
+    "Desenvolvimento",
+    "Suporte",
+    "Documentação",
+    "Email",
+    "Revisão",
+    "Planeamento",
+    "Outro"
+  ],
+  "window_mode": "window"
+}
