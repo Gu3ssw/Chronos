@@ -483,11 +483,7 @@ def render_registo():
     
     current_email = st.session_state.user.email
 
-    PROFILE_OWNERS = {
-        "p1": "gabiaraujo62002@gmail.com",
-    }
-
-    can_edit = PROFILE_OWNERS.get(prof["id"]) == current_email
+    can_edit = prof["owner_email"] == current_email
 
     if not can_edit:
         st.warning("Este perfil é apenas de visualização.")
