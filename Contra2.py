@@ -71,6 +71,12 @@ def fmt_time(minutes):
     minutes = abs(minutes)
     return f"{sign}{minutes // 60:02d}h{minutes % 60:02d}m"
 
+def can_edit_profile(profile):
+    if not st.session_state.user:
+        return False
+    
+    return profile.get("owner_id") == st.session_state.user.email
+
 # ════════════════════════════════════════════════════════════════════════════
 # CARREGAR DADOS DO SUPABASE
 # Reconstrói a mesma estrutura de dicionário usada anteriormente
@@ -83,7 +89,11 @@ def load_data() -> dict:
 
     # Seed perfil por defeito se vazio
     if not profiles:
-        default = {"id": "p1", "name": "O meu perfil", "hours": 7.5}
+        default = {    
+            "id": "p1",
+            "name": "Gabriel",
+            "hours": 7.5,
+            "owner_id": "gabiaraujo62002@gmail.com"}
         sb.table("profiles").insert(default).execute()
         profiles = [default]
 
@@ -176,7 +186,13 @@ def db_delete_day(profile_id: str, day_key: str):
     invalidate()
 
 def db_add_profile(name: str, hours: float):
-    sb.table("profiles").insert({"id": uid(), "name": name, "hours": hours}).execute()
+    sb.table("profiles").insert({
+        "id": uid(),
+        "name": name,
+        "hours": hours,
+        "owner_id": st.session_state.user.email
+    }).execute()
+
     invalidate()
 
 def db_delete_profile(profile_id: str):
@@ -370,6 +386,8 @@ with st.sidebar:
 
     prof = chosen_prof
 
+    can_edit = can_edit_profile(prof)
+
     st.divider()
     if st.button("🚪 Logout", use_container_width=True):
         logout()
@@ -462,6 +480,17 @@ def render_dashboard():
 
 def render_registo():
     st.markdown("## ✏️ Registo de Tempo")
+    
+    current_email = st.session_state.user.email
+
+    PROFILE_OWNERS = {
+        "p1": "gabiaraujo62002@gmail.com",
+    }
+
+    can_edit = PROFILE_OWNERS.get(prof["id"]) == current_email
+
+    if not can_edit:
+        st.warning("Este perfil é apenas de visualização.")
 
     today = today_key()
     logged = total_logged(data, prof["id"], today)
@@ -525,7 +554,7 @@ def render_registo():
         btn1, btn2, btn3 = st.columns(3)
         with btn1:
             if not st.session_state.timer_running:
-                if st.button("▶ Iniciar", use_container_width=True, type="primary"):
+                if st.button("▶ Iniciar", use_container_width=True, type="primary", disabled=not can_edit):
                     st.session_state.timer_running = True
                     st.session_state.timer_start = datetime.now()
                     st.rerun()
@@ -581,7 +610,7 @@ def render_registo():
             with tc2:
                 mins_in = st.number_input("Minutos", min_value=0, max_value=59, value=0, step=5)
 
-            if st.form_submit_button("➕ Adicionar ao banco", use_container_width=True, type="primary"):
+            if st.form_submit_button("➕ Adicionar ao banco", use_container_width=True, type="primary", disabled=not can_edit):
                 total_mins = int(hours_in * 60 + mins_in)
                 if task_name and total_mins > 0:
                     task = {
@@ -607,7 +636,7 @@ def render_registo():
         st.markdown("<div class='section-title'>Tasks de hoje</div>", unsafe_allow_html=True)
     with col_clear:
         if day_data["tasks"]:
-            if st.button("🗑 Limpar dia", use_container_width=True):
+            if st.button("🗑 Limpar dia", use_container_width=True,disabled=not can_edit):
                 db_delete_day(prof["id"], today)
                 st.rerun()
 
@@ -656,10 +685,10 @@ def render_registo():
                 f"<span class='badge'>{task['ticket']}</span>" if task.get("ticket") else "—",
                 unsafe_allow_html=True)
             cols[3].markdown(f"**{fmt_time(task['minutes'])}**")
-            if cols[4].button("✏️", key=f"edit_{task['id']}"):
+            if can_edit and cols[4].button("✏️", key=f"edit_{task['id']}"):
                 st.session_state.edit_task = task.copy()
                 st.rerun()
-            if cols[5].button("✕", key=f"del_{task['id']}"):
+            if can_edit and cols[5].button("✕", key=f"del_{task['id']}"):
                 db_delete_task(task["id"])
                 st.rerun()
 
