@@ -1,0 +1,270 @@
+# 🚀 Guia de Distribuição - Time Tracker
+
+Este guia explica **3 formas diferentes** de distribuir a aplicação aos teus colegas.
+
+---
+
+## ⚡ OPÇÃO 1: Executável Windows (RECOMENDADO)
+
+**Vantagens:**
+- ✅ Colegas não precisam instalar nada
+- ✅ Um único ficheiro .exe
+- ✅ Funciona offline
+- ✅ Mais profissional
+
+**Desvantagens:**
+- ⚠️ Ficheiro grande (~150-200MB)
+- ⚠️ Pode demorar 10-15 segundos a iniciar
+- ⚠️ Antivirus pode dar alerta (é falso positivo)
+
+### Como criar o executável:
+
+#### Passo 1: Instalar Python (se ainda não tens)
+1. Vai a https://www.python.org/downloads/
+2. Descarrega Python 3.8 ou superior
+3. Durante instalação, **marca "Add Python to PATH"**
+
+#### Passo 2: Criar o executável
+1. Faz duplo clique em **CRIAR_EXECUTAVEL.bat**
+2. Aguarda 5-10 minutos (instala dependências e cria o .exe)
+3. Quando terminar, o executável estará em `dist\TimeTracker.exe`
+
+#### Passo 3: Distribuir aos colegas
+1. Envia **apenas** o ficheiro `dist\TimeTracker.exe`
+2. Colega faz duplo clique e a app abre no browser
+3. Pronto! ✨
+
+### Se o antivirus bloquear:
+- É um **falso positivo** comum com PyInstaller
+- Adiciona exceção no antivirus
+- Ou usa a Opção 2 abaixo
+
+---
+
+## 🎯 OPÇÃO 2: Pasta portátil com Python (MAIS SIMPLES)
+
+**Vantagens:**
+- ✅ Mais simples e rápido de criar
+- ✅ Sem alertas de antivirus
+- ✅ Mais fácil de atualizar
+
+**Desvantagens:**
+- ⚠️ Colegas precisam instalar Python (mas só uma vez)
+
+### Como distribuir:
+
+#### Passo 1: Preparar pasta
+1. Cria uma pasta chamada "TimeTracker"
+2. Copia estes ficheiros para dentro:
+   - `time_tracker_v2.py`
+   - `requirements.txt`
+   - `EXECUTAR.bat`
+   - `README.md` (opcional)
+
+#### Passo 2: Comprimir
+1. Clica direito na pasta → "Enviar para" → "Pasta zipada"
+2. Tens agora `TimeTracker.zip`
+
+#### Passo 3: Instruções para o colega
+Envia o ficheiro .zip com estas instruções:
+
+```
+1. Descompacta a pasta
+2. Instala Python de https://www.python.org/downloads/
+   (Marca "Add Python to PATH" durante instalação)
+3. Faz duplo clique em EXECUTAR.bat
+4. Pronto! A app abre automaticamente no browser
+```
+
+**Nota:** Na primeira vez, o `EXECUTAR.bat` instala as dependências automaticamente (demora 1-2 minutos).
+
+---
+
+## 🌐 OPÇÃO 3: Servidor web interno (AVANÇADO)
+
+**Para partilhar com toda a equipa numa rede interna**
+
+### Requisitos:
+- Servidor Windows/Linux sempre ligado
+- Todos na mesma rede
+
+### Como configurar:
+
+#### No servidor:
+```bash
+# Instalar dependências
+pip install -r requirements.txt
+
+# Iniciar servidor (acessível na rede)
+streamlit run time_tracker_v2.py --server.address 0.0.0.0 --server.port 8501
+```
+
+#### Colegas acedem via:
+```
+http://IP_DO_SERVIDOR:8501
+```
+
+**Exemplo:** Se o servidor tem IP `192.168.1.100`, acedem via `http://192.168.1.100:8501`
+
+---
+
+## 📋 Comparação das opções
+
+| Aspeto | Executável | Pasta Portátil | Servidor Web |
+|--------|-----------|---------------|--------------|
+| Fácil de criar | ⭐⭐ | ⭐⭐⭐ | ⭐ |
+| Fácil de usar | ⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐ |
+| Tamanho | Grande | Pequeno | N/A |
+| Colaboração | ❌ | ❌ | ✅ |
+| Offline | ✅ | ✅ | ❌ |
+
+---
+
+## 🆘 Resolução de Problemas
+
+### Problema: "Python não é reconhecido"
+**Solução:** Reinstala Python e marca "Add Python to PATH"
+
+### Problema: Antivirus bloqueia o .exe
+**Solução:** 
+1. Adiciona exceção no antivirus, OU
+2. Usa a Opção 2 (Pasta portátil)
+
+### Problema: Erro ao instalar dependências
+**Solução:**
+```bash
+# Tenta instalar manualmente:
+pip install --upgrade pip
+pip install streamlit pandas openpyxl
+```
+
+### Problema: Porta 8501 já está em uso
+**Solução:** Fecha outras instâncias do Streamlit ou usa outra porta:
+```bash
+streamlit run time_tracker_v2.py --server.port 8502
+```
+
+---
+
+## 💡 Dicas
+
+1. **Dados guardados localmente:** O ficheiro `time_tracker_data.json` fica na mesma pasta do executável/script. Faz backup regularmente!
+
+2. **Atualizar a app:** Para distribuir nova versão, substitui o ficheiro `time_tracker_v2.py` e cria novo executável
+
+3. **Icon personalizado:** Adiciona `icon.ico` à pasta e edita `time_tracker.spec` (linha `icon=None` → `icon='icon.ico'`)
+
+4. **Partilha de dados:** Se vários colegas precisam partilhar dados, usa um servidor de ficheiros partilhado (Dropbox, OneDrive, etc.) e guarda o `time_tracker_data.json` lá
+
+---
+
+## 📞 Suporte
+
+Se tiveres problemas:
+1. Verifica que Python 3.8+ está instalado
+2. Tenta correr `pip install -r requirements.txt` manualmente
+3. Testa primeiro com `streamlit run time_tracker_v2.py`
+
+---
+
+**Recomendação final:** Começa com a **Opção 2 (Pasta Portátil)** - é a mais simples e confiável. Se quiseres algo mais profissional depois, experimenta a Opção 1.
+
+
+
+
+
+# ⏱ Time Tracker - Início Rápido
+
+## 🚀 Começar AGORA (mais rápido)
+
+**Se tens Python instalado:**
+1. Faz duplo clique em **EXECUTAR.bat**
+2. Pronto! ✨
+
+**Se NÃO tens Python:**
+1. Instala Python de https://www.python.org/downloads/
+2. Marca "Add Python to PATH" durante instalação
+3. Faz duplo clique em **EXECUTAR.bat**
+
+---
+
+## 📦 Distribuir aos colegas
+
+### Método 1: Pasta zipada (MAIS SIMPLES)
+1. Compacta todos os ficheiros num .zip
+2. Envia ao colega
+3. Colega instala Python e corre EXECUTAR.bat
+
+### Método 2: Executável (MAIS PROFISSIONAL)
+1. Faz duplo clique em **CRIAR_EXECUTAVEL.bat**
+2. Aguarda 5-10 minutos
+3. Envia o ficheiro `dist\TimeTracker.exe` ao colega
+4. Colega só precisa fazer duplo clique (sem instalar nada!)
+
+**Para instruções detalhadas, lê GUIA_DISTRIBUICAO.md**
+
+---
+
+## ✨ Novidades desta versão
+
+✅ **Tipos de Task** - Categoriza as tuas tasks (Reunião, Desenvolvimento, etc.)
+✅ **Dashboard** - Gráficos e estatísticas da tua gestão de tempo
+✅ **Exportar Excel** - Exporta todas as tasks para Excel
+✅ **Editar tasks** - Corrige tarefas já registadas
+✅ **Navegação por páginas** - Dashboard, Registo, Histórico, Configurações
+
+---
+
+## 📂 Ficheiros importantes
+
+- `time_tracker_v2.py` - Aplicação principal
+- `EXECUTAR.bat` - Clica aqui para iniciar
+- `CRIAR_EXECUTAVEL.bat` - Clica aqui para criar .exe
+- `time_tracker_data.json` - Os teus dados (faz backup!)
+- `requirements.txt` - Dependências Python
+- `GUIA_DISTRIBUICAO.md` - Instruções completas
+
+---
+
+## ⚙️ Funcionalidades
+
+### Dashboard
+- Gráficos de distribuição por tipo de task
+- Evolução semanal das horas
+- Métricas de eficiência
+- Exportação para Excel
+
+### Registo
+- Cronómetro em tempo real
+- Registo manual de tasks
+- Tipo de task obrigatório
+- Ticket CSI ID
+- Edição de tasks registadas
+
+### Histórico
+- Calendário visual
+- Ver tasks de qualquer dia
+- Estatísticas por dia
+
+### Configurações
+- Gerir perfis (nome + horas diárias)
+- Gerir tipos de task
+
+---
+
+## 🆘 Problemas?
+
+**App não abre?**
+- Verifica que Python está instalado
+- Corre `pip install -r requirements.txt`
+
+**Antivirus bloqueia o .exe?**
+- É falso positivo comum
+- Usa a Pasta zipada em vez disso
+
+**Mais ajuda?**
+Lê o ficheiro **GUIA_DISTRIBUICAO.md**
+
+---
+
+Desenvolvido com ❤️ para facilitar a gestão de tempo
